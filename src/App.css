@@ -1,38 +1,161 @@
-.App {
+*{
+  box-sizing: border-box;
+}
+.App{
+  background-color: #325d6e;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-rangewidget{
+  width: 35vw;
+  height: 50vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.app-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.app-header__list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.app-header__list li{
+  width: 50%;
+}
+.app-header__list a{
+  height: 40px;
+  border-bottom: 2px solid #ffffff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.app-header__list a.active{
+  background-color: #ffffff;
+  color: #000;
+}
+
+.app-header__list li:not(:last-child) a{
+  border-right: 2px solid #ffffff;
+}
+
+.app-rangewidget__status{
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  color: #ffffff;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#app {
+  margin-top: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#progressInput {
+  margin: 50px auto 0;
+  width: 100%;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.circle-background,
+.circle-progress {
+  fill: none;
 }
 
-.App-link {
-  color: #61dafb;
+.circle-background {
+  stroke: #325d6e;
+  fill: #446d7d;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.circle-progress {
+  stroke: #ffffff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.circle-text {
+  font-size: 3em;
+  font-weight: bold;
+  fill: #ffffff;
+}
+.circle-inner{
+  fill: #b5ecef;
+}
+
+.form-input{
+  width: 100%;
+}
+.dashed{
+  stroke-dasharray: 8, 8.5;
+  fill: transparent;
+  stroke: #b5ecef;
+  stroke-width: 2;
+}
+
+.range-slider{
+  position: relative;
+
+}
+
+
+
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 10px;
+  background: #ffffff;
+  border-radius: 5px;
+  background-image: linear-gradient(#b5ecef, #b5ecef);
+  background-repeat: no-repeat;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #b5ecef;
+  cursor: pointer;
+  box-shadow: 0 0 2px 0 #555;
+  transition: background 0.3s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: #d46a6a50 0px 0px 0px 8px;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  box-shadow: #d46a6a50 0px 0px 0px 11px;
+  transition: box-shadow 350ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    left 350ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    bottom 350ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
